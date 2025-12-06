@@ -1,6 +1,6 @@
 # Dockerfile for Railway deployment
-# Railway will use this when Root Directory is set to root
-# If Root Directory is set to 'backend', Railway will use backend/Dockerfile instead
+# This works when Root Directory is NOT set (builds from root)
+# If Root Directory IS set to 'backend', Railway will use backend/Dockerfile instead
 
 FROM python:3.11-slim
 
@@ -12,13 +12,10 @@ RUN apt-get update && apt-get install -y \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
-# Change to backend directory
-WORKDIR /app/backend
-
-# Copy dependency files
+# Copy backend dependency files
 COPY backend/pyproject.toml backend/requirements.txt ./
 
-# Copy application code (needed for editable install)
+# Copy backend application code (needed for editable install)
 COPY backend/ .
 
 # Install Python dependencies (after code is copied)
