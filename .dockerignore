@@ -1,0 +1,11 @@
+# Ignore files not needed in Docker build
+frontend/
+.github/
+*.md
+.git/
+.gitignore
+data/
+scripts/
+docker-compose*.yml
+.railwayignore
+
