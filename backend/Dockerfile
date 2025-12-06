@@ -8,14 +8,14 @@ RUN apt-get update && apt-get install -y \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy dependency files
+# Copy dependency files first
 COPY pyproject.toml requirements.txt ./
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -e .
-
-# Copy application code
+# Copy application code (needed for editable install)
 COPY . .
+
+# Install Python dependencies (after code is copied)
+RUN pip install --no-cache-dir -e .
 
 # Create data directory
 RUN mkdir -p /app/data
