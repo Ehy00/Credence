@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: credence-backend
+    env: python
+    buildCommand: pip install -e .
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GDELT_API_KEY
+        sync: false
+      - key: GOOGLE_FACTCHECK_API_KEY
+        sync: false
+      - key: MBFC_DATA_PATH
+        value: ./data/mbfc.csv
+      - key: BACKEND_CORS_ORIGINS
+        sync: false
+
+
+
+
