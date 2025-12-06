@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  // Enable standalone output for Docker
+  // Remove 'standalone' output for Vercel - it handles this automatically
+  // output: 'standalone', // Only for Docker deployments
   experimental: {
     outputFileTracingIncludes: {
       '/': ['./data/**/*'],
