@@ -1,0 +1,3 @@
+# Tell Railway to ignore Nixpacks and use Dockerfile instead
+.nixpacks/
+
