@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Vercel handles output automatically - no need to specify
-  // Remove experimental config that might cause issues
+  // Minimal config for Vercel - let it handle everything automatically
+  output: undefined, // Let Vercel decide
 };
 
 export default nextConfig;
